@@ -1,0 +1,36 @@
+<h2>Consulta de Clientes</h2>
+
+<div class="pesquisa">
+  <input type="text" placeholder="Pesquisar pelo nome" [(ngModel)]="pesquisa">
+  <button (click)="pesquisar()">Pesquisar</button>
+</div>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>CPF</th>
+      <th>Data Nascimento</th>
+      <th>UF</th>
+      <th>Município</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of clientesFiltrados">
+      <td>{{ cliente.nome }}</td>
+      <td>{{ cliente.email }}</td>
+      <td>{{ cliente.cpf }}</td>
+      <td>{{ cliente.dataNascimento }}</td>
+      <td>{{ cliente.uf }}</td>
+      <td>{{ cliente.municipio }}</td>
+      <td>
+        <button (click)="editar(cliente.id)">Editar</button>
+        <button (click)="excluir(cliente.id)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
