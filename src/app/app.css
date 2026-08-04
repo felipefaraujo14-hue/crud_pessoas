@@ -1,0 +1,45 @@
+/* Container de Navegação */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Links de Navegação */
+  nav a {
+    text-decoration: none;
+    color: #555555;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+  }
+  
+  /* Hover nos links */
+  nav a:hover {
+    color: #667eea;
+    background-color: #f0f3ff;
+  }
+  
+  /* Estilo para a rota ativa no Angular */
+  nav a.active,
+  nav a.router-link-active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  }
+  
+  /* Divisor elegante (substitui a linha crua do <hr>) */
+  hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.08), transparent);
+    margin: 0;
+  }
