@@ -12,6 +12,8 @@ import { PessoaService } from './pessoa.service';
   styleUrl: './pessoas.css'
 })
 export class Pessoas {
+  
+  // Guarda o formulário inteiro.
   formulario: FormGroup;
 
   constructor(
