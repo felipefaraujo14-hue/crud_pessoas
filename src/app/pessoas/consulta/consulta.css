@@ -1,0 +1,148 @@
+/* Título da tela */
+h2 {
+    color: #333;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+  
+  /* Área de pesquisa */
+  .pesquisa {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    max-width: 500px;
+  }
+  
+  .pesquisa input {
+    flex: 1;
+    height: 45px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 0 14px;
+    font-size: 15px;
+    background: #fafafa;
+    outline: none;
+    transition: border-color .3s, box-shadow .3s, background .3s;
+  }
+  
+  .pesquisa input:focus {
+    background: #fff;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.20);
+  }
+  
+  .pesquisa button {
+    height: 45px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+  }
+  
+  .pesquisa button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(102, 126, 234, 0.35);
+  }
+  
+  .pesquisa button:active {
+    transform: scale(.98);
+  }
+  
+  /* Tabela de dados */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    margin-top: 10px;
+  }
+  
+  /* Cabeçalho */
+  th {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    padding: 14px 16px;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Linhas e Células */
+  td {
+    padding: 14px 16px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  /* Efeito ao passar o mouse na linha */
+  tbody tr:hover {
+    background-color: #f8f9ff;
+  }
+  
+  /* Remove a borda da última linha */
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* Coluna de ações e botões de Editar/Excluir */
+  td:last-child {
+    display: flex;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  
+  td button {
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: opacity .2s, transform .2s;
+  }
+  
+  /* Botão Editar */
+  td button:first-child {
+    background-color: #e2e8ff;
+    color: #4c6fff;
+  }
+  
+  td button:first-child:hover {
+    background-color: #d0dcff;
+    transform: translateY(-1px);
+  }
+  
+  /* Botão Excluir */
+  td button:last-child {
+    background-color: #ffe5e5;
+    color: #e53e3e;
+  }
+  
+  td button:last-child:hover {
+    background-color: #ffd1d1;
+    transform: translateY(-1px);
+  }
+  
+  /* Ajustes de responsividade */
+  @media (max-width: 768px) {
+    .pesquisa {
+      max-width: 100%;
+    }
+  
+    table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
