@@ -1,63 +1,83 @@
 <form [formGroup]="formulario" (ngSubmit)="salvar()">
+
   <h2>Atualizar Dados</h2>
-<div>
-  <label for="nome">Nome</label>
-  <input type="text" id="nome" formControlName="nome" placeholder="Digite o nome">
-</div>
 
-<div>
-  <label for="email">E-mail</label>
-  <input type="email" id="email" formControlName="email" placeholder="Digite o e-mail">
-</div>
+  <div>
+    <label for="nome">Nome</label>
+    <input
+      type="text"
+      id="nome"
+      formControlName="nome"
+      placeholder="Digite o nome">
+  </div>
 
-<div>
-  <label for="cpf">CPF</label>
-  <input type="text" id="cpf" formControlName="cpf" placeholder="000.000.000-00">
-</div>
+  <div>
+    <label for="email">E-mail</label>
+    <input
+      type="email"
+      id="email"
+      formControlName="email"
+      placeholder="Digite o e-mail">
+  </div>
 
-<div>
-  <label for="dataNascimento">Data de Nascimento</label>
-  <input type="date" id="dataNascimento" formControlName="dataNascimento">
-</div>
+  <div>
+    <label for="cpf">CPF</label>
+    <input
+      type="text"
+      id="cpf"
+      formControlName="cpf"
+      placeholder="000.000.000-00">
+  </div>
 
-<div>
-  <label for="uf">UF</label>
-  <select id="uf" formControlName="uf">
-    <option value="">Selecione</option>
-    <option value="AC">AC</option>
-    <option value="AP">AP</option>
-    <option value="AM">AM</option>
-    <option value="PA">PA</option>
-    <option value="RO">RO</option>
-    <option value="RR">RR</option>
-    <option value="TO">TO</option>
-    <option value="AL">AL</option>
-    <option value="BA">BA</option>
-    <option value="CE">CE</option>
-    <option value="MA">MA</option>
-    <option value="PB">PB</option>
-    <option value="PE">PE</option>
-    <option value="PI">PI</option>
-    <option value="RN">RN</option>
-    <option value="SE">SE</option>
-    <option value="DF">DF</option>
-    <option value="GO">GO</option>
-    <option value="MT">MT</option>
-    <option value="MS">MS</option>
-    <option value="ES">ES</option>
-    <option value="MG">MG</option>
-    <option value="RJ">RJ</option>
-    <option value="SP">SP</option>
-    <option value="PR">PR</option>
-    <option value="RS">RS</option>
-    <option value="SC">SC</option>
-  </select>
-</div>
+  <div>
+    <label for="dataNascimento">Data de Nascimento</label>
+    <input
+      type="date"
+      id="dataNascimento"
+      formControlName="dataNascimento">
+  </div>
 
-<div>
-  <label for="municipio">Município</label>
-  <input type="text" id="municipio" formControlName="municipio" placeholder="Digite o município">
-</div>
+  <div>
+    <label for="uf">Estado</label>
 
-<button type="submit">Atualizar</button>
+    <select
+      id="uf"
+      formControlName="uf"
+      (change)="carregarMunicipios()">
+
+      <option value="">Selecione um estado</option>
+
+      <option
+        *ngFor="let estado of estados"
+        [value]="estado.id">
+
+        {{ estado.sigla }} - {{ estado.nome }}
+
+      </option>
+
+    </select>
+  </div>
+
+  <div>
+    <label for="municipio">Município</label>
+
+    <select
+      id="municipio"
+      formControlName="municipio">
+
+      <option value="">Selecione um município</option>
+
+      <option
+        *ngFor="let municipio of municipios"
+        [value]="municipio.nome">
+
+        {{ municipio.nome }}
+
+      </option>
+
+    </select>
+  </div>
+
+  <button type="submit">Atualizar</button>
+
 </form>
