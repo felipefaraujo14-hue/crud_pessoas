@@ -16,8 +16,7 @@ export class Editar implements OnInit {
   id!: number;
   formulario!: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
+  constructor(private fb: FormBuilder,
     private route: ActivatedRoute,
     private pessoaService: PessoaService
   ) {}
