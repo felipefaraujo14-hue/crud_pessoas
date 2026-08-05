@@ -1,90 +1,136 @@
-/* Fundo centralizado */
+/* Fundo da página */
 :host {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    font-family: "Segoe UI", Arial, sans-serif;
-    padding: 20px;
-    box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 30px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Card */
+form {
+  width: 100%;
+  max-width: 550px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 35px;
+  box-sizing: border-box;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Título */
+h2 {
+  margin: 0 0 10px;
+  text-align: center;
+  color: #333;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* Cada campo */
+form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Labels */
+label {
+  color: #444;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Inputs e Selects */
+input,
+select {
+  width: 100%;
+  height: 48px;
+  padding: 0 15px;
+
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+
+  background: #fafafa;
+  color: #333;
+
+  font-size: 15px;
+  font-family: inherit;
+
+  outline: none;
+  box-sizing: border-box;
+
+  transition: all .3s ease;
+}
+
+/* Focus */
+input:focus,
+select:focus {
+  background: #fff;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102,126,234,.18);
+}
+
+/* Placeholder */
+input::placeholder {
+  color: #999;
+}
+
+/* Select */
+select {
+  cursor: pointer;
+}
+
+/* Botão */
+button {
+  margin-top: 15px;
+  height: 50px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #667eea, #764ba2);
+
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all .25s ease;
+}
+
+/* Hover */
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102,126,234,.35);
+}
+
+/* Clique */
+button:active {
+  transform: scale(.98);
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+
+  :host {
+    padding: 15px;
   }
-  
-  /* Card centralizado */
+
   form {
-    width: 100%;
-    max-width: 500px;
-    background: #ffffff;
-    padding: 35px;
-    border-radius: 18px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+    padding: 25px;
   }
-  
-  /* Título */
+
   h2 {
-    color: #333333;
-    font-size: 26px;
-    font-weight: 700;
-    text-align: center;
-    margin: 0 0 10px 0;
-    text-align: center;
+    font-size: 24px;
   }
-  
-  /* Cada grupo de Label + Campo */
-  form > div {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-  }
-  
-  /* Labels */
-  label {
-    font-size: 14px;
-    font-weight: 600;
-    color: #444444;
-  }
-  
-  /* Campos de entrada */
-  input,
-  select {
-    width: 100%;
-    height: 45px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 0 14px;
-    font-size: 15px;
-    background: #fafafa;
-    color: #333;
-    outline: none;
-    box-sizing: border-box;
-    transition: border-color 0.3s, box-shadow 0.3s;
-  }
-  
-  input:focus,
-  select:focus {
-    background: #fff;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
-  }
-  
-  /* Botão */
-  button {
-    margin-top: 10px;
-    height: 48px;
-    border: none;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  
-  button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
-  }
+
+}

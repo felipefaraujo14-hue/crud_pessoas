@@ -1,21 +1,31 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 // Diz ao Angular que essa classe é um serviço.
 @Injectable({
   providedIn: 'root'
 })
 
-//amazenamento local e a comunicacao entre os componen
+// Armazenamento local e comunicação entre os componentes
 export class PessoaService {
 
   private chave = 'clientes';
+
+  // URL da API do IBGE
+  private apiIBGE = 'https://servicodados.ibge.gov.br/api/v1/localidades';
+
+  constructor(private http: HttpClient) {}
+
+  // ===========================
+  // LOCAL STORAGE
+  // ===========================
 
   adicionar(cliente: any) {
     const clientes = this.listar();
 
     clientes.push(cliente);
 
-    //salva o array atualizado no local
     localStorage.setItem(
       this.chave,
       JSON.stringify(clientes)
@@ -23,14 +33,10 @@ export class PessoaService {
   }
 
   listar(): any[] {
-
     const dados = localStorage.getItem(this.chave);
-
-    
     return dados ? JSON.parse(dados) : [];
   }
 
-  //busca o cliente pelo id
   buscarPorId(id: number) {
     const clientes = this.listar();
 
@@ -42,15 +48,13 @@ export class PessoaService {
   atualizar(clienteAtualizado: any) {
     const clientes = this.listar();
 
-      // Procura a posição do cliente dentro do array.
     const index = clientes.findIndex(
       (cliente: any) => cliente.id === clienteAtualizado.id
     );
-  // Verifica se encontrou o cliente e o-1 caso nao encontre
+
     if (index !== -1) {
       clientes[index] = clienteAtualizado;
 
-        // Salva novamente os dados atualizados no LocalStorage.
       localStorage.setItem(
         this.chave,
         JSON.stringify(clientes)
@@ -61,15 +65,29 @@ export class PessoaService {
   excluir(id: number) {
     const clientes = this.listar();
 
-     // Cria um novo array apenas com os clientes  que possuem id diferente do que será excluído.
     const filtrados = clientes.filter(
       (cliente: any) => cliente.id !== id
     );
 
-     // Salva o novo array sem o cliente removido.
     localStorage.setItem(
       this.chave,
       JSON.stringify(filtrados)
+    );
+  }
+
+
+//Api do ibge
+  // Lista todos os estados
+  listarEstados(): Observable<any[]> {
+    return this.http.get<any[]>(
+      `${this.apiIBGE}/estados?orderBy=nome`
+    );
+  }
+
+  // Lista municípios de um estado
+  listarMunicipios(uf: number): Observable<any[]> {
+    return this.http.get<any[]>(
+      `${this.apiIBGE}/estados/${uf}/municipios`
     );
   }
 }
